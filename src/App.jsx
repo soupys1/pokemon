@@ -25,12 +25,18 @@ const App = () => {
           }
         },[count]);
 
-        function handleReset(){
-          setCount(0);
-          setTitle("You lost ,Try again");
-          setHigh((prevHigh) => prevHigh);
-          setCards(initialCards);
-        }
+       const handleReset = async () => {
+  setTitle("You lost, Try again");
+
+  // Simulate an asynchronous operation (like fetching data or waiting)
+  await new Promise((resolve) => setTimeout(resolve, 1000)); // 1 second delay for demonstration
+
+  setCount(0);
+  setHigh((prevHigh) => prevHigh); // Keeping the previous high score
+  setCards(initialCards); // Resetting the cards
+
+  // Any other async operations can be awaited here.
+};
 
         useEffect(()=>{
           if(count ===20){
